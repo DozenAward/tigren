@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<!--    <head>-->
+<!--        &lt;!&ndash; Remove local resources &ndash;&gt;-->
+<!--        <remove src="http://localhost/magento2/pub/static/version1600318948/frontend/Mageplaza/simple/en_US/mage/polyfill.js" />-->
+<!--        <remove src="http://localhost/magento2/pub/static/version1600318948/frontend/Mageplaza/simple/en_US/Magento_Ui/js/lib/knockout/bootstrap.js"/>-->
+<!--        <remove src="Magento_Catalog::js/compare.js" />-->
+
+<!--        &lt;!&ndash; Remove external resources &ndash;&gt;-->
+<!--        <remove src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>-->
+<!--        <remove src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"/>-->
+<!--        <remove src="http://fonts.googleapis.com/css?family=Montserrat" />-->
+<!--    </head>-->
+
+    <referenceContainer name="content">
+        <block class="Mageplaza\HelloWorld\Block\Edit" name="helloworld_index_edit" template="Mageplaza_HelloWorld::edit.phtml" cacheable="false"/>
+    </referenceContainer>
+
+
+<!--    <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">-->
+<!--        <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>-->
+<!--    </container>-->
+
+<!--    <referenceContainer name="helloworld_index_edit" display="false" />-->
+</page>

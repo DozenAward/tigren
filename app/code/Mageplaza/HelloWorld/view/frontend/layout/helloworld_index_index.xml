@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <body>
+    <referenceContainer name="content">
+        <block  class="Mageplaza\HelloWorld\Block\Index"  name="helloworld_index_index" template="Mageplaza_HelloWorld::index.phtml"  cacheable="false"/>
+    </referenceContainer>
+
+    <referenceContainer name="content">
+        <block  class="Mageplaza\HelloWorld\Block\Insert"  name="helloworld_index_index_2" after="helloworld_index_index" template="Mageplaza_HelloWorld::insert.phtml"  cacheable="false"/>
+    </referenceContainer>
+
+    <referenceContainer name="content">
+        <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="helloworld_index_index_2">
+            <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>
+<!--            <block  class="Mageplaza\HelloWorld\Block\Insert"  name="helloworld_index_index_3" after="helloworld_index_index" template="Mageplaza_HelloWorld::insert.phtml"  cacheable="false"/>-->
+
+        </container>
+
+        <container name="div.sidebar.main" htmlTag="div" htmlClass="sidebar sidebar-main" after="main">
+            <container name="sidebar.main" as="sidebar_main" label="Sidebar Main"/>
+        </container>
+        <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">
+            <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>
+        </container>
+    </referenceContainer>
+
+    <referenceContainer name="content.bottom">
+        <block class="Magento\Cms\Block\Block" name="block_identifier">
+            <arguments>
+                <!-- Here is the CMS Block id -->
+                <argument name="block_id" xsi:type="string">my_cms_block_identifier</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+<!--    <referenceBlock name="helloworld_index_index_3" display="false"/>-->
+<!--    <move element="helloworld_index_index_3" destination="helloworld_index_index" as="new_alias"/>-->
+
+
+
+
+    <!--    <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">-->
+<!--        <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>-->
+<!--    </container>-->
+    </body>
+</page>

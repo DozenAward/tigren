@@ -1,0 +1,28 @@
+<table>
+     <tr>
+     <th><a class="action primary" href="<?php echo $block->getUrl('helloworld/index/insert'); ?>">Add Record</a></th>
+     </tr>
+     <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Content</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th colspan="2">Action</th>
+     </tr>
+ 
+     <?php
+          $collection = $block->getResult();
+          foreach($collection as $item){
+     ?>
+     <tr>
+          <td><?php echo $item->getData('post_id'); ?></td>
+          <td><?php echo $item->getData('name'); ?></td>
+          <td><?php echo $item->getData('post_content'); ?></td>
+          <td><?php echo $item->getData('created_at'); ?></td>
+          <td><?php echo $item->getData('updated_at'); ?></td>
+          <td><a href="<?php echo $block->getUrl('helloworld/index/edit').'id/'.$item->getData('post_id'); ?>" class="action primary">Edit</a></td>
+          <td><a href="<?php echo $block->getUrl('helloworld/index/delete').'?id='.$item->getData('post_id'); ?>" class="action primary">Delete</a></td>
+     </tr>
+     <?php } ?>
+</table>

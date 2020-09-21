@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <body>
+<!--    <uiComponent>-->
+
+<!--    </uiComponent>-->
+    <referenceContainer name="content">
+        <block  class="Mageplaza\HelloWorld\Block\Index"  name="helloworld_index_index" template="Mageplaza_HelloWorld::index.phtml"  cacheable="false">
+            <arguments>
+                <argument name="label" xsi:type="string">Block Label</argument>
+            </arguments>
+        </block>
+        <referenceBlock name="helloworld_index_index">
+            <arguments>
+                <argument name="css_class" xsi:type="string">productahihi</argument>
+                <argument name="add_base_attribute" xsi:type="string">itemprop="name"</argument>
+            </arguments>
+        </referenceBlock>
+    </referenceContainer>
+    <attribute name="style" value="opacity:0.5;"/>
+    <referenceBlock name="logo">
+        <arguments>
+            <argument name="logo_file" xsi:type="string">images/logo.jpg</argument>
+        </arguments>
+    </referenceBlock>
+    <referenceBlock name="page.main.title">
+        <arguments>
+            <argument name="css_class" xsi:type="string">my-new-block-class</argument>
+        </arguments>
+    </referenceBlock>
+    <referenceContainer name="content.bottom">
+        <block class="Mageplaza\HelloWorld\Block\Index" name="block_identifier">
+            <arguments>
+                <!-- Here is the CMS Block id -->
+                <argument name="block_id" xsi:type="string">my_cms_block_identifier</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+    </body>
+
+
+</page>
