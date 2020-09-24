@@ -1,0 +1,7 @@
+<type name="Magento\Checkout\Block\Onepage">
+    <arguments>
+        <argument name="layoutProcessors" xsi:type="array">
+            <item name="%unique_name%" xsi:type="object">%path\to\your\LayoutProcessor%</item>
+        </argument>
+    </arguments>
+</type>
