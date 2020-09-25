@@ -66,6 +66,7 @@ define(
              */
             navigate: function () {
 
+                this.isVisible(true);
             },
 
             /**

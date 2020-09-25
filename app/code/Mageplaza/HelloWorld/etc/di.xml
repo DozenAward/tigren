@@ -1,7 +1,9 @@
-<type name="Magento\Checkout\Block\Onepage">
-    <arguments>
-        <argument name="layoutProcessors" xsi:type="array">
-            <item name="%unique_name%" xsi:type="object">%path\to\your\LayoutProcessor%</item>
-        </argument>
-    </arguments>
-</type>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Mageplaza\HelloWorld\Controller\Index\Example">
+        <plugin name="Mageplaza_HelloWorld_Plugin" type="Mageplaza\HelloWorld\Plugin\ExamplePlugin" sortOrder="10" disabled="false"  />
+    </type>
+
+    <type name="Magento\Catalog\Api\Data\ProductInterface">
+        <plugin name="mageplaza_helloworld_catalog_product" type="Mageplaza\HelloWorld\Plugin\Model\Product" />
+    </type>
+</config>
