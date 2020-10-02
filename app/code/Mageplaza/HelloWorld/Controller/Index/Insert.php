@@ -48,7 +48,7 @@ class Insert extends \Magento\Framework\App\Action\Action
             $url_key=$_POST['url_key'];
             $post_content=$_POST['post_content'];
             $feature_image=$_POST['featured_image'];
-            $data = array('name'=>$name,'url_key'=>$url_key,'post_content'=>$post_content,'featured_image'=>$feature_image);
+            $data = array('name'=>$name,'url_key'=>$url_key,'post_content'=>$post_content,'status'=>'0','featured_image'=>$feature_image);
             $post = $this->_postFactory->create();
             $saveid = $post ->setData($data);
             $saveid->save()->getId();
