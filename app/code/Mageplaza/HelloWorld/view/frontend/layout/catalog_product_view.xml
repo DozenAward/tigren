@@ -1,15 +1,53 @@
-
+<?xml version="1.0"?>
 <page>
     <body>
-        <referenceBlock	name="product.info.details">
-            <block	class="Mageplaza\HelloWorld\Block\SizeGuide"	name="size-guide"	after="-"	group="detailed_i">
-								<arguments>
-										<argument	name="block_id"	xsi:type="string">size-guide</argument>
-										<argument	name="css_class"	xsi:type="string">description</argument>
-										<argument	name="at_label"	xsi:type="string">none</argument>
-										<argument	name="title"	translate="true"	xsi:type="string">Size	Guide</argument>
-								</arguments>
+				<referenceBlock	name="product.info.details">
+					<block	class="Mageplaza\HelloWorld\Block\SizeGuide"	name="size-guide"		group="detailed_info">
+							<arguments>
+									<argument	name="block_id"	xsi:type="string">size-guide</argument>
+									<argument	name="css_class"	xsi:type="string">description</argument>
+									<argument	name="at_label"	xsi:type="string">none</argument>
+									<argument	name="title"	translate="true"	xsi:type="string">Size	Guide</argument>
+									<argument 	name="sort_order" xsi:type="string">2</argument>
+							</arguments>
+					</block>
+
+					<block class="Magento\Review\Block\Product\Review" name="reviews.tab" as="reviews" after="size-guide" template="Magento_Review::review.phtml" group="detailed_info">
+						<block class="Magento\Review\Block\Form" name="product.review.form" as="review_form">
+							<container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
 						</block>
+					</block>
+
+					<block class="Magento\Catalog\Block\Product\View\Description" name="product.info.description" after="reviews.tab" as="description" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+						<arguments>
+							<argument name="at_call" xsi:type="string">getDescription</argument>
+							<argument name="at_code" xsi:type="string">description</argument>
+							<argument name="css_class" xsi:type="string">description</argument>
+							<argument name="at_label" xsi:type="string">none</argument>
+							<argument name="title" translate="true" xsi:type="string">Details</argument>
+							<argument 	name="sort_order" xsi:type="string">3</argument>
+						</arguments>
+					</block>
+
+					<block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes" after="-" as="additional" template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info">
+						<arguments>
+							<argument translate="true" name="title" xsi:type="string">More Information</argument>
+							<argument 	name="sort_order" xsi:type="string">5</argument>
+						</arguments>
+					</block>
+<!--					<referenceBlock name="product.info.description" >-->
+<!--						<arguments>-->
+
+<!--							<argument	name="title"	translate="true"	xsi:type="string">Size = Guide</argument>-->
+<!--							<argument 	name="sort_order" xsi:type="string">4</argument>-->
+<!--						</arguments>-->
+
+
+<!--					</referenceBlock>-->
+
 				</referenceBlock>
-		</body>
+				<move element="size-g" destination="product.info.details" before="-" />
+
+
+	</body>
 </page>

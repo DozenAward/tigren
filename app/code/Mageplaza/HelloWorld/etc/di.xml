@@ -5,5 +5,14 @@
 
     <type name="Magento\Catalog\Api\Data\ProductInterface">
         <plugin name="mageplaza_helloworld_catalog_product" type="Mageplaza\HelloWorld\Plugin\Model\Product" />
+
     </type>
+
+    <type	name="Magento\Catalog\Api\Data\ProductInterface">
+        <plugin	name="newProductFlag"	type="Mageplaza\HelloWorld\Plugin\NewProductFlag"/>
+    </type>
+
+
+    <preference for="Magento\Catalog\Model\Product" type="Mageplaza\HelloWorld\Model\Product"/>
+
 </config>

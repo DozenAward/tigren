@@ -99,6 +99,20 @@ class UpgradeSchema implements UpgradeSchemaInterface
 			}
 		}
 
+        if (version_compare($context->getVersion(), '1.1.2', '<')) {
+            $installer->getConnection()->addColumn(
+                $installer->getTable('catalog_product_entity'),
+                'new_item',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    'length' => 1,
+                    'nullable' => true,
+                    'comment' => 'new product'
+                ]
+            );
+        }
+
+
 		$installer->endSetup();
 	}
 }
