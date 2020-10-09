@@ -15,4 +15,6 @@
 
     <preference for="Magento\Catalog\Model\Product" type="Mageplaza\HelloWorld\Model\Product"/>
 
+<!--    <preference for="Magento\Catalog\Api\Data\ProductInterface" type="Mageplaza\HelloWorld\Api\Data\ProductInterface"/>-->
+
 </config>

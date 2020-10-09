@@ -19,7 +19,8 @@ namespace Mageplaza\HelloWorld\Plugin;
     if	(in_array($this->request->getFullActionName(),	$pages))	{
 //    $timezone	=	new	\DateTimeZone($this->localeDate->getConfigTimezone());
 //    $now	=	new	\DateTime('now',	$timezone);
-    $new_item	=		$subject->getNewItem();
+    $new_item	=		$subject->getIsNewItem();
+//    echo $new_item;
     if	($new_item==1)	{
     return	__( '[NEW]	')	.	$result;
     } else{
