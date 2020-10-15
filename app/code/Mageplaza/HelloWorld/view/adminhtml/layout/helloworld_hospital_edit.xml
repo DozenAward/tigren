@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Mageplaza\HelloWorld\Block\Adminhtml\Hospital\Edit\Tabs"
+                   name="helloworld_hospital_grid_block.edit.tabs"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Mageplaza\HelloWorld\Block\Adminhtml\Hospital\Edit"
+                   name="helloworld_hospital_grid_block.edit"/>
+        </referenceContainer>
+    </body>
+</page>

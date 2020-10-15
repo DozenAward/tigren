@@ -6,6 +6,10 @@
                 <enable>1</enable>
                 <display_text>Hello World</display_text>
             </general>
+            <hospital>
+                <enable>1</enable>
+                <display_text>Name Hospital</display_text>
+            </hospital>
         </helloworld>
     </default>
 </config>

@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Block;
+namespace Mageplaza\HelloWorld\Block;
  
 class Edit extends \Magento\Framework\View\Element\Template
 {

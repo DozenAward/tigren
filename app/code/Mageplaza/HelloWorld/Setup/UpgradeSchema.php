@@ -110,6 +110,61 @@ class UpgradeSchema implements UpgradeSchemaInterface
 //			}
 //		}
 
+
+        if(version_compare($context->getVersion(), '1.1.4', '<')) {
+			if (!$installer->tableExists('hospital')) {
+				$table = $installer->getConnection()->newTable(
+					$installer->getTable('hospital')
+				)
+					->addColumn(
+						'id_hospital',
+						\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+						null,
+						[
+							'identity' => true,
+							'nullable' => false,
+							'primary'  => true,
+							'unsigned' => true,
+						],
+						'Hospital ID'
+					)
+					->addColumn(
+						'title',
+						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+						255,
+						['nullable => false'],
+						'Title Hospital'
+					)
+					->addColumn(
+						'address',
+						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+						255,
+						[],
+						'Address'
+					)
+					->addColumn(
+						'telephone',
+						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+						'255',
+						[],
+						'Telephone'
+					)
+					->setComment('Hospital Table');
+				$installer->getConnection()->createTable($table);
+
+				$installer->getConnection()->addIndex(
+					$installer->getTable('hospital'),
+					$setup->getIdxName(
+						$installer->getTable('hospital'),
+						['title','address','telephone'],
+						\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+					),
+					['title','address','telephone'],
+					\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+				);
+			}
+		}
+
 //        if (version_compare($context->getVersion(), '1.1.2', '<')) {
 //            $installer->getConnection()->addColumn(
 //                $installer->getTable('catalog_product_entity'),

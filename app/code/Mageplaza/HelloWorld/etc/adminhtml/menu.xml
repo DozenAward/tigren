@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_HelloWorld::helloworld_menu" title="Mageplaza HelloWorld" module="Mageplaza_HelloWorld" sortOrder="51" resource="Mageplaza_HelloWorld::helloworld"/>
+        <add id="Mageplaza_HelloWorld::hospital_menu" title="Manage Hospital" module="Mageplaza_HelloWorld" sortOrder="10" action="helloworld/hospital/index" resource="Mageplaza_HelloWorld::hospital" parent="Mageplaza_HelloWorld::helloworld_menu"/>
+<!--        <add id="Mageplaza_HelloWorld::hello_configuration" title="Configuration" module="Mageplaza_HelloWorld" sortOrder="99" parent="Mageplaza_HelloWorld::helloworld_menu" action="helloworld/hospital/index " resource="Mageplaza_HelloWorld::hospital"/>-->
+    </menu>
+</config>
