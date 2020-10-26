@@ -210,6 +210,8 @@ return [
         'Magento_WishlistSampleData' => 1,
         'Mageplaza_HelloWorld' => 1,
         'Temando_Shipping' => 1,
+        'Tigren_CustomShipping' => 1,
+        'Tigren_KnockoutJs' => 1,
         'Vertex_Tax' => 1
     ]
 ];

@@ -11,5 +11,16 @@
                 <display_text>Name Hospital</display_text>
             </hospital>
         </helloworld>
+
+
+        <payment>
+            <custompayment>
+                <payment_action>authorize</payment_action> <!-- You can use another method -->
+                <model>Mageplaza\HelloWorld\Model\PaymentMethod</model>
+                <active>1</active>
+                <title>Custom Payment Method</title>
+                <order_status>pending_payment</order_status><!-- set default order status-->
+            </custompayment>
+        </payment>
     </default>
 </config>

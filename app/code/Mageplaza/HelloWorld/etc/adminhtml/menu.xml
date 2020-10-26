@@ -4,5 +4,7 @@
         <add id="Mageplaza_HelloWorld::helloworld_menu" title="Mageplaza HelloWorld" module="Mageplaza_HelloWorld" sortOrder="51" resource="Mageplaza_HelloWorld::helloworld"/>
         <add id="Mageplaza_HelloWorld::hospital_menu" title="Manage Hospital" module="Mageplaza_HelloWorld" sortOrder="10" action="helloworld/hospital/index" resource="Mageplaza_HelloWorld::hospital" parent="Mageplaza_HelloWorld::helloworld_menu"/>
 <!--        <add id="Mageplaza_HelloWorld::hello_configuration" title="Configuration" module="Mageplaza_HelloWorld" sortOrder="99" parent="Mageplaza_HelloWorld::helloworld_menu" action="helloworld/hospital/index " resource="Mageplaza_HelloWorld::hospital"/>-->
+
+        <add id="Mageplaza_HelloWorld::hospital_menu_2" title="Enable Hospital" module="Mageplaza_HelloWorld" sortOrder="10" action="admin/system_config/edit/section/helloworld" resource="Mageplaza_HelloWorld::hospital" parent="Mageplaza_HelloWorld::helloworld_menu"/>
     </menu>
 </config>

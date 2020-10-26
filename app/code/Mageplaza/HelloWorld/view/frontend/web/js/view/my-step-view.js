@@ -3,32 +3,28 @@ define(
         'ko',
         'uiComponent',
         'underscore',
-        'Magento_Checkout/js/model/step-navigator',
-        'Magento_Customer/js/model/customer'
+        'Magento_Checkout/js/model/step-navigator'
     ],
     function (
         ko,
         Component,
         _,
-        stepNavigator,
-        customer
+        stepNavigator
     ) {
         'use strict';
         /**
-         * check-login - is the name of the component's .html template
+         *
+         * mystep - is the name of the component's .html template,
+         * <Vendor>_<Module>  - is the name of the your module directory.
+         *
          */
         return Component.extend({
             defaults: {
-                template: 'Mageplaza_HelloWorld/check-login'
+                template: 'Mageplaza_HelloWorld/mystep'
             },
 
             //add here your logic to display step,
             isVisible: ko.observable(true),
-            isLogedIn: customer.isLoggedIn(),
-            //step code will be used as step content id in the component template
-            stepCode: 'isLogedCheck',
-            //step title value
-            stepTitle: 'Logging Status',
 
             /**
              *
@@ -38,10 +34,12 @@ define(
                 this._super();
                 // register your step
                 stepNavigator.registerStep(
-                    this.stepCode,
+                    //step code will be used as step content id in the component template
+                    'step_code',
                     //step alias
                     null,
-                    this.stepTitle,
+                    //step title value
+                    'My Step is Nothing',
                     //observable property with logic when display step or hide step
                     this.isVisible,
 
@@ -53,7 +51,7 @@ define(
                      * 10 < 'sort order value' < 20 : step displays between shipping and payment step
                      * 'sort order value' > 20 : step displays after payment step
                      */
-                    11
+                    16
                 );
 
                 return this;
@@ -63,6 +61,7 @@ define(
              * The navigate() method is responsible for navigation between checkout step
              * during checkout. You can add custom logic, for example some conditions
              * for switching to your custom step
+             * When the user navigates to the custom step via url anchor or back button we_must show step manually here
              */
             navigate: function () {
 

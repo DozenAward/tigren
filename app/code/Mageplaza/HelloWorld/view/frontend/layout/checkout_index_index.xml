@@ -10,25 +10,103 @@
                                     <item name="children" xsi:type="array">
 
                                         <!--modify address shipping Step -->
+<!--                                        <item name="shipping-step" xsi:type="array">-->
+<!--                                            <item name="sortOrder" xsi:type="string">5</item>-->
+<!--                                            <item name="children" xsi:type="array">-->
+<!--                                                <item name="shippingAddress" xsi:type="array">-->
+<!--                                                    <item name="children" xsi:type="array">-->
+<!--                                                        <item name="before-form" xsi:type="array">-->
+<!--                                                            <item name="children" xsi:type="array">-->
+<!--                                                                <item name="newsletter" xsi:type="array">-->
+<!--                                                                    <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/newsletter</item>-->
+<!--                                                                </item>-->
+<!--                                                            </item>-->
+<!--                                                        </item>-->
+<!--                                                    </item>-->
+<!--                                                </item>-->
+
+
+<!--                                            </item>-->
+<!--                                        </item>-->
+
                                         <item name="shipping-step" xsi:type="array">
-                                            <item name="sortOrder" xsi:type="string">5</item>
                                             <item name="children" xsi:type="array">
                                                 <item name="shippingAddress" xsi:type="array">
+
+
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="shippingMethodItemTemplate" xsi:type="string">Mageplaza_HelloWorld/custom-method-item-template</item>
+                                                        <item name="shippingMethodListTemplate" xsi:type="string">Mageplaza_HelloWorld/custom-method-list-template</item>
+                                                    </item>
+
+
                                                     <item name="children" xsi:type="array">
-                                                        <item name="before-form" xsi:type="array">
+                                                        <item name="before-shipping-method-form" xsi:type="array">
                                                             <item name="children" xsi:type="array">
-                                                                <item name="newsletter" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/newsletter</item>
+                                                                <item name="shipping_policy" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magento_Shipping/js/view/checkout/shipping/shipping-policy
+                                                                    </item>
 <!--                                                                    <item name="config" xsi:type="array">-->
 <!--                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>-->
 <!--                                                                    </item>-->
                                                                 </item>
                                                             </item>
                                                         </item>
+
+
+
                                                     </item>
                                                 </item>
                                             </item>
                                         </item>
+
+<!--                                        <item name="disable-shipping-step" xsi:type="array">-->
+<!--                                            <item name="config" xsi:type="array">-->
+<!--                                                <item name="newsletter" xsi:type="boolean">true</item>-->
+<!--                                            </item>-->
+<!--                                        </item>-->
+
+                                        <!--New Step custom add-->
+                                        <item name="my-new-step" xsi:type="array">
+                                            <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/my-step-view</item>
+                                            <!--To display step content before shipping step "sortOrder" value should be < 1-->
+                                            <!--To display step content between shipping step and payment step  1 < "sortOrder" < 2 -->
+                                            <!--To display step content after payment step "sortOrder" > 2 -->
+                                            <item name="sortOrder" xsi:type="string">2</item>
+
+                                            <item name="children" xsi:type="array">
+                                                <!--add here child component declaration for your step-->
+<!--                                                <item name="before-contentntn" xsi:type="array">-->
+
+<!--&lt;!&ndash;                                                    <item name="newsletter" xsi:type="array">&ndash;&gt;-->
+<!--                                                        <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/newsletter</item>-->
+<!--&lt;!&ndash;                                                    </item>&ndash;&gt;-->
+<!--                                                        <item name="displayArea" xsi:type="string">before-contentntn</item>-->
+
+<!--                                                </item>-->
+
+
+<!--                                                <item name="authentication" xsi:type="array">-->
+<!--                                                    <item name="sortOrder" xsi:type="string">1</item>-->
+<!--                                                    <item name="component" xsi:type="string">Magento_Checkout/js/view/authentication</item>-->
+<!--                                                    <item name="displayArea" xsi:type="string">authentication</item>-->
+<!--                                                    <item name="children" xsi:type="array">-->
+<!--                                                        &lt;!&ndash;Additional authentication fields&ndash;&gt;-->
+<!--                                                        <item name="errors" xsi:type="array">-->
+<!--                                                            <item name="sortOrder" xsi:type="string">0</item>-->
+<!--                                                            <item name="component" xsi:type="string">Magento_Checkout/js/view/authentication-messages</item>-->
+<!--                                                            <item name="displayArea" xsi:type="string">messages</item>-->
+<!--                                                        </item>-->
+<!--                                                    </item>-->
+<!--                                                </item>-->
+
+                                            </item>
+                                        </item>
+
+
+
+
+
 
                                         <!-- The new step you add -->
                                         <item name="check-login-step" xsi:type="array">
@@ -44,14 +122,16 @@
 
 
 
-<!--                                            <item name="children" xsi:type="array">-->
-<!--                                                &lt;!&ndash;add here child component declaration for your step&ndash;&gt;-->
-<!--                                                <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/custom-checkout-form</item>-->
-<!--                                                <item name="config" xsi:type="array">-->
-<!--                                                    &lt;!&ndash; And this to add your html template  &ndash;&gt;-->
-<!--                                                    <item name="template" xsi:type="string">Mageplaza_HelloWorld/custom-checkout-form</item>-->
-<!--                                                </item>-->
-<!--                                            </item>-->
+                                            <item name="children" xsi:type="array">
+                                                <item name="before-contentntn" xsi:type="array">
+
+
+                                                    <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/newsletter</item>
+
+                                                    <item name="displayArea" xsi:type="string">before-contentntn</item>
+
+                                                </item>
+                                            </item>
 
 
 <!--                                            <item name="children" xsi:type="array">-->
@@ -70,14 +150,39 @@
                                         </item>
 
 
+                                        <item name="billing-step" xsi:type="array">
 
-                                        <item name="check-login-step2" xsi:type="array">
-                                            <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/custom-checkout-form</item>
-                                            <item name="config" xsi:type="array">
-                                                <!-- And this to add your html template  -->
-                                                <item name="template" xsi:type="string">Mageplaza_HelloWorld/custom-checkout-form</item>
+                                            <item name="sortOrder" xsi:type="string">4</item>
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="renders" xsi:type="array">
+                                                            <!-- merge payment method renders here -->
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="custompayment" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/payment/method-renderer</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="custompayment" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
                                             </item>
+
                                         </item>
+
+<!--                                        <item name="check-login-step2" xsi:type="array">-->
+<!--                                            <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/custom-checkout-form</item>-->
+<!--                                            <item name="config" xsi:type="array">-->
+<!--                                                &lt;!&ndash; And this to add your html template  &ndash;&gt;-->
+<!--                                                <item name="template" xsi:type="string">Mageplaza_HelloWorld/custom-checkout-form</item>-->
+<!--                                            </item>-->
+<!--                                        </item>-->
                                     </item>
                                 </item>
 
@@ -111,6 +216,14 @@
                 </argument>
             </arguments>
         </referenceBlock>
+<!--        <referenceBlock name="my-new-step">-->
+<!--            <item name="newsletter" xsi:type="array">-->
+<!--                <item name="component" xsi:type="string">Mageplaza_HelloWorld/js/view/newsletter</item>-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="componentDisabled" xsi:type="boolean">false</item>-->
+<!--                </item>-->
+<!--            </item>-->
+<!--        </referenceBlock>-->
     </body>
 </page>
 

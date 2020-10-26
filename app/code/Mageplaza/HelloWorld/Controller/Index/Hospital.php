@@ -19,9 +19,9 @@ class Hospital extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
-        echo "Module Created Successfully";
-        echo $this->helperDataHospital->getGeneralConfig('enable');
-        echo $this->helperDataHospital->getGeneralConfig('display_text');
+//        echo "Module Created Successfully";
+//        echo $this->helperDataHospital->getGeneralConfig('enable');
+//        echo $this->helperDataHospital->getGeneralConfig('display_text');
         return $this->_pageFactory->create();
     }
 }

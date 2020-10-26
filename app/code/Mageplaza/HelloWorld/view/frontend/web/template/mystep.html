@@ -1,16 +1,17 @@
-<!--Use 'stepCode' as id attribute-->
-<li data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
-    <div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+<!--The 'step_code' value from the .js file should be used-->
+<li id="step_code" data-bind="fadeVisible: isVisible">
+    <div class="step-title" data-bind="i18n: 'Step is Nothing'" data-role="title"></div>
     <div id="checkout-step-title"
          class="step-content"
          data-role="content">
+        <div name="content_ntn" id="content_ntn">Nguyễn Tá Thưởng</div>
         <!-- ko foreach: getRegion('before-contentntn') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
-        <p>The customer is <span data-bind="if: isLogedIn"><?php customer().fullname?></span> <span data-bind="if: !isLogedIn">not</span> Logged-in</p>
         <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
             <div class="actions-toolbar">
                 <div class="primary">
+
                     <button data-role="opc-continue" type="submit" class="button action continue primary">
                         <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
                     </button>

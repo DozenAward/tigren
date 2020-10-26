@@ -33,8 +33,8 @@ class Edit extends Hospital
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_resultPageFactory->create();
-        $resultPage->setActiveMenu('Mageplaza_HelloWorld::helloworld_menu');
-//        $resultPage->getConfig()->getTitle()->prepend(__('Hospital'));
+//        $resultPage->setActiveMenu('Mageplaza_HelloWorld::helloworld_menu');
+        $resultPage->getConfig()->getTitle()->prepend(__('Hospital'));
 
         return $resultPage;
     }
