@@ -56,10 +56,10 @@ class OrderManagement
                 $temp = $orderItems->getData()['product_id'];
                 $quantity = $orderItems->getData()['product_options']['info_buyRequest']['qty'];
 //                $quantity = 5;
-                $this->updateProductAttribute($temp, 'quantity_daily_deal', $quantity);
+//                $this->updateProductAttribute($temp, 'quantity_daily_deal', $quantity);
 //                die($temp);
 //                $this->updateProductAttribute($temp,'quantity_daily_deal',"19");
-                $logger->info(print_r($orderItems->getData()['product_options']['info_buyRequest']['qty'], true));
+                $logger->info(print_r($orderItems->getData(), true));
 
             }
         }
@@ -80,8 +80,9 @@ class OrderManagement
         $product = $objectManager->get('Magento\Catalog\Model\Product')->load($productId);
 //        $quantity_daily_deal = $product->getData()['quantity_daily_deal'];
         $quantity_daily_deal = $product->getQuantityDailyDeal();
+        $id_quantity_deal = $product->getIdDailyDeal();
 //        die("abczyz ".$quantity_daily_deal);
-        if($quantity_daily_deal){
+        if($id_quantity_deal){
         $quantity_daily_deal = (($quantity_daily_deal - $value) > 0) ? ($quantity_daily_deal - $value) : 0;
 
 

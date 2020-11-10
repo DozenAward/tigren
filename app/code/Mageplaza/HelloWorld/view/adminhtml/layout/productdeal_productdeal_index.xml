@@ -69,7 +69,7 @@
 
                         <block class="Magento\Backend\Block\Widget\Grid\Column" as="quantity_reamain_deal">
                             <arguments>
-                                <argument name="header" xsi:type="string" translate="true">Quantity Remain</argument>
+                                <argument name="header" xsi:type="string" translate="true">Quantity For Sale</argument>
                                 <argument name="index" xsi:type="string">quantity_remain_deal</argument>
                                 <argument name="type" xsi:type="string">name</argument>
                                 <argument name="column_css_class" xsi:type="string">col-id</argument>
@@ -79,7 +79,7 @@
 
                         <block class="Magento\Backend\Block\Widget\Grid\Column" as="price">
                             <arguments>
-                                <argument name="header" xsi:type="string" translate="true">Created At</argument>
+                                <argument name="header" xsi:type="string" translate="true">Price Deal($)</argument>
                                 <argument name="index" xsi:type="string">deal_price</argument>
                                 <argument name="type" xsi:type="string">deal_price</argument>
                                 <argument name="column_css_class" xsi:type="string">col-id</argument>
@@ -115,7 +115,7 @@
             </block>
 
 
-            <block  class="Mageplaza\HelloWorld\Block\Product"  name="dailydeal_product_index" template="Mageplaza_HelloWorld::product/list_product.phtml"  cacheable="false"/>
+<!--            <block  class="Mageplaza\HelloWorld\Block\Product"  name="dailydeal_product_index" template="Mageplaza_HelloWorld::product/list_product.phtml"  cacheable="false"/>-->
 
         </referenceContainer>
     </body>
