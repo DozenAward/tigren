@@ -10,114 +10,102 @@ use Magento\Framework\Setup\ModuleContextInterface;
 
 class UpgradeSchema implements UpgradeSchemaInterface
 {
-//    private $eavSetupFactory;
-////    protected $logger;
-////
-//    public function __construct(EavSetupFactory $eavSetupFactory) {
-//        $this->eavSetupFactory = $eavSetupFactory;
-////        $this->logger = $logger;
-//    }
+
 
 	public function upgrade( SchemaSetupInterface $setup, ModuleContextInterface $context ) {
 		$installer = $setup;
 
 		$installer->startSetup();
 
-//		if(version_compare($context->getVersion(), '1.1.0', '<')) {
-//			if (!$installer->tableExists('mageplaza_helloworld_post')) {
-//				$table = $installer->getConnection()->newTable(
-//					$installer->getTable('mageplaza_helloworld_post')
-//				)
-//					->addColumn(
-//						'post_id',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
-//						null,
-//						[
-//							'identity' => true,
-//							'nullable' => false,
-//							'primary'  => true,
-//							'unsigned' => true,
-//						],
-//						'Post ID'
-//					)
-//					->addColumn(
-//						'name',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//						255,
-//						['nullable => false'],
-//						'Post Name'
-//					)
-//					->addColumn(
-//						'url_key',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//						255,
-//						[],
-//						'Post URL Key'
-//					)
-//					->addColumn(
-//						'post_content',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//						'64k',
-//						[],
-//						'Post Post Content'
-//					)
-//					->addColumn(
-//						'tags',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//						255,
-//						[],
-//						'Post Tags'
-//					)
-//					->addColumn(
-//						'status',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
-//						1,
-//						[],
-//						'Post Status'
-//					)
-//					->addColumn(
-//						'featured_image',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//						255,
-//						[],
-//						'Post Featured Image'
-//					)
-//					->addColumn(
-//						'created_at',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
-//						null,
-//						['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
-//						'Created At'
-//					)->addColumn(
-//						'updated_at',
-//						\Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
-//						null,
-//						['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE],
-//						'Updated At')
-//					->setComment('Post Table');
-//				$installer->getConnection()->createTable($table);
+
+        if(version_compare($context->getVersion(), '1.2.6', '<')) {
+            if (!$installer->tableExists('product_daily_deal')) {
+                $table = $installer->getConnection()->newTable(
+                    $installer->getTable('product_daily_deal')
+                )
+                    ->addColumn(
+                        'id_product_deal',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                        null,
+                        [
+                            'identity' => true,
+                            'nullable' => false,
+                            'primary'  => true,
+                            'unsigned' => true,
+                        ],
+                        'Product Deal ID'
+                    )
+                    ->addColumn(
+                        'id_product',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                        null,
+                        ['nullable => false'],
+                        'Product ID'
+                    )
+                    ->addColumn(
+                        'id_deal',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                        null,
+                        [],
+                        'ID Daily Deal'
+                    )
+                    ->addColumn(
+                        'quantity_remain_deal',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                        '255',
+                        [],
+                        'Quantity Daily Deal'
+                    )
+                    ->addColumn(
+                        'deal_price',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                        '255',
+                        [],
+                        'Deal Price'
+                    )
+//                    ->addColumn(
+//                        'date_deal_start',
+//                        \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+//                        null,
+//                        ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+//                        'Date Deal Start'
+//                    )->addColumn(
+//                        'date_deal_end',
+//                        \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+//                        null,
+//                        ['nullable' => false,'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+//                        'Date End ')
+//                    ->addColumn(
+//                        'daily_deal_enable',
+//                        \Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
+//                        null,
+//                        ['nullable' => false,'default' => false],
+//                        'Daily Deal Enable')
+
+                    ->setComment('Daily Deal Table');
+                $installer->getConnection()->createTable($table);
+
+                $installer->getConnection()->addIndex(
+                    $installer->getTable('daily_deal'),
+                    $setup->getIdxName(
+                        $installer->getTable('daily_deal'),
+                        ['daily_deal_title','percent','quantity_daily_deal','date_start','date_end','daily_deal_enable'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                    ),
+                    ['daily_deal_title','percent','quantity_daily_deal','date_start','date_end','daily_deal_enable'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                );
+            }
+        }
+
 //
-//				$installer->getConnection()->addIndex(
-//					$installer->getTable('mageplaza_helloworld_post'),
-//					$setup->getIdxName(
-//						$installer->getTable('mageplaza_helloworld_post'),
-//						['name','url_key','post_content','tags','featured_image'],
-//						\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
-//					),
-//					['name','url_key','post_content','tags','featured_image'],
-//					\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
-//				);
-//			}
-//		}
-
-
-        if(version_compare($context->getVersion(), '1.1.4', '<')) {
-			if (!$installer->tableExists('hospital')) {
+        if(version_compare($context->getVersion(), '1.1.9', '<')) {
+			if (!$installer->tableExists('daily_deal')) {
 				$table = $installer->getConnection()->newTable(
-					$installer->getTable('hospital')
+					$installer->getTable('daily_deal')
 				)
 					->addColumn(
-						'id_hospital',
+						'id_daily_deal',
 						\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
 						null,
 						[
@@ -126,84 +114,121 @@ class UpgradeSchema implements UpgradeSchemaInterface
 							'primary'  => true,
 							'unsigned' => true,
 						],
-						'Hospital ID'
+						'Dailydeal ID'
 					)
 					->addColumn(
-						'title',
+						'daily_deal_title',
 						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
 						255,
 						['nullable => false'],
-						'Title Hospital'
+						'Title Daily Deal'
 					)
 					->addColumn(
-						'address',
-						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+						'price_for_deal',
+						\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
 						255,
 						[],
-						'Address'
+						'Percent'
 					)
 					->addColumn(
-						'telephone',
-						\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+						'quantity_daily_deal',
+						\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
 						'255',
 						[],
-						'Telephone'
+						'Quantity Daily Deal'
 					)
-					->setComment('Hospital Table');
+                    ->addColumn(
+                        'date_start',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                        null,
+                        ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+                        'Date Start'
+                    )->addColumn(
+                        'date_end',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                        null,
+                        ['nullable' => false,'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+                        'Date End ')
+                    ->addColumn(
+                        'daily_deal_enable',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
+                        null,
+                        ['nullable' => false,'default' => false],
+                        'Daily Deal Enable')
+
+					->setComment('Daily Deal Table');
 				$installer->getConnection()->createTable($table);
 
 				$installer->getConnection()->addIndex(
-					$installer->getTable('hospital'),
+					$installer->getTable('daily_deal'),
 					$setup->getIdxName(
-						$installer->getTable('hospital'),
-						['title','address','telephone'],
+						$installer->getTable('daily_deal'),
+						['daily_deal_title','price_for_deal','quantity_daily_deal','date_start','date_end','daily_deal_enable'],
 						\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 					),
-					['title','address','telephone'],
+                    ['daily_deal_title','price_for_deal','quantity_daily_deal','date_start','date_end','daily_deal_enable'],
 					\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 				);
 			}
 		}
 
-//        if (version_compare($context->getVersion(), '1.1.2', '<')) {
-//            $installer->getConnection()->addColumn(
-//                $installer->getTable('catalog_product_entity'),
-//                'new_item',
-//                [
-//                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
-//                    'length' => 1,
-//                    'nullable' => true,
-//                    'comment' => 'new product'
-//                ]
-//            );
-//        }
+
+//
 
 
-//        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
-//        $eavSetup->addAttribute(
-//            \Magento\Catalog\Model\Product::ENTITY,
-//            'is_new_item',[
-//              'type' => 'text',
-//                'backend' => '',
-//                'frontend' => '',
-//                'label' => 'Is New Item',
-//                'input' => 'select',
-//                'class' => '',
-//                'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
-//                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
-//                'visible' => true,
-//                'required' => true,
-//                'user_defined' => false,
-//                'default' => '',
-//                'searchable' => false,
-//                'filterable' => false,
-//                'comparable' => false,
-//                'visible_on_front' => false,
-//                'used_in_product_listing' => true,
-//                'unique' => false,
-//                'apply_to' => ''
-//            ]
-//        );
+        if(version_compare($context->getVersion(), '1.1.4', '<')) {
+            if (!$installer->tableExists('hospital')) {
+                $table = $installer->getConnection()->newTable(
+                    $installer->getTable('hospital')
+                )
+                    ->addColumn(
+                        'id_hospital',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                        null,
+                        [
+                            'identity' => true,
+                            'nullable' => false,
+                            'primary'  => true,
+                            'unsigned' => true,
+                        ],
+                        'Hospital ID'
+                    )
+                    ->addColumn(
+                        'title',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                        255,
+                        ['nullable => false'],
+                        'Title Hospital'
+                    )
+                    ->addColumn(
+                        'address',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                        255,
+                        [],
+                        'Address'
+                    )
+                    ->addColumn(
+                        'telephone',
+                        \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                        '255',
+                        [],
+                        'Telephone'
+                    )
+                    ->setComment('Hospital Table');
+                $installer->getConnection()->createTable($table);
+
+                $installer->getConnection()->addIndex(
+                    $installer->getTable('hospital'),
+                    $setup->getIdxName(
+                        $installer->getTable('hospital'),
+                        ['title','address','telephone'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                    ),
+                    ['title','address','telephone'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                );
+            }
+        }
 
         $installer->endSetup();
 	}

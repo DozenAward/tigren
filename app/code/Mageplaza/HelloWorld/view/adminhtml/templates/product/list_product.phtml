@@ -1,0 +1,12 @@
+<p>Nguyễn tá Thưởng</p>
+
+<?php
+//$collection = $block->getProductCollection();
+$collection = $block->getResult();
+foreach($collection as $item){
+            echo "<pre>";
+			print_r($item->getData()['sku']);
+			echo "</pre>";
+
+} ?>
+

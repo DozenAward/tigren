@@ -16,5 +16,13 @@
     <preference for="Magento\Catalog\Model\Product" type="Mageplaza\HelloWorld\Model\Product"/>
 
 <!--    <preference for="Magento\Catalog\Api\Data\ProductInterface" type="Mageplaza\HelloWorld\Api\Data\ProductInterface"/>-->
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="block-product-list" type="Mageplaza\HelloWorld\Plugin\ProductList"/>
+    </type>
+
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="after_place_order_operation" type="Mageplaza\HelloWorld\Plugin\OrderManagement"/>
+    </type>
+
 
 </config>

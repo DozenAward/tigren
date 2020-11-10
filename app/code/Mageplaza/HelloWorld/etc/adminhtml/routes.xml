@@ -5,5 +5,14 @@
         <route id="helloworld" frontName="helloworld">
             <module name="Mageplaza_HelloWorld" />
         </route>
+
+        <route id="dailydeal" frontName="dailydeal">
+            <module name="Mageplaza_HelloWorld" />
+        </route>
+
+        <route id="productdeal" frontName="productdeal">
+            <module name="Mageplaza_HelloWorld" />
+        </route>
     </router>
+
 </config>

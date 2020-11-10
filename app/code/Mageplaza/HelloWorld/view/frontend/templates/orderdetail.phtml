@@ -1,0 +1,31 @@
+<?php
+//$orderId = 000000017; // YOUR ORDER ID
+//$items = $block->getOrderItems($orderId);
+//echo "Nguyễn Tá Thưởng";
+//
+//foreach ($items as $item) {
+//    $options = $item->getProductOptions();
+//    if (isset($options['options']) && !empty($options['options'])) {
+//        foreach ($options['options'] as $option) {
+//            echo 'Title: ' . $option['label'] . '<br />';
+//            echo 'ID: ' . $option['option_id'] . '<br />';
+//            echo 'Type: ' . $option['option_type'] . '<br />';
+//            echo 'Value: ' . $option['option_value'] . '<br />' . '<br />';
+//            echo $option.getData();
+//        }
+//    }
+//}
+//$order = $block->getOrder();
+
+print_r($block->getLastOrder()->getData());
+echo "Thưởng</br>";
+//foreach($order as $item){
+//    print_r($order->getData());
+//}
+$orderItems= $block->getOrder();
+
+foreach ($orderItems as $item) {
+    $product_name=   $item->getName();
+    $product_id=   $item->getProductId();
+}
+?>

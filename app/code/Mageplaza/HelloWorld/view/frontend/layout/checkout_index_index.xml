@@ -1,6 +1,19 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+<!--        <referenceBlock name="checkout.root">-->
+<!--            <action method="setTemplate">-->
+<!--                <argument name="template" xsi:type="string">Mageplaza_HelloWolrd::onepage.phtml</argument>-->
+<!--            </action>-->
+<!--        </referenceBlock>-->
+<!--        <referenceBlock name="checkout.root">-->
+<!--            <arguments>-->
+<!--                <argument-->
+<!--                        name="view_model"-->
+<!--                        xsi:type="object">Mageplaza\HelloWorld\Block\Quote</argument>-->
+<!--            </arguments>-->
+<!--        </referenceBlock>-->
         <referenceBlock name="checkout.root">
+
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
                     <item name="components" xsi:type="array">
@@ -215,6 +228,9 @@
                     </item>
                 </argument>
             </arguments>
+
+
+
         </referenceBlock>
 <!--        <referenceBlock name="my-new-step">-->
 <!--            <item name="newsletter" xsi:type="array">-->

@@ -1,7 +1,32 @@
 <?xml version="1.0"?>
 <page>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
     <body>
+
+
+<!--		<referenceBlock name="product.info.details">-->
+
+<!--		</referenceBlock>-->
+
+
+<!--		<referenceContainer name="content">-->
+<!--			<block before="product.info.details" class="Mageplaza\HelloWorld\Block\TimeCountDown" name="extra" template="Mageplaza_HelloWorld::timecountdown.phtml" />-->
+<!--		</referenceContainer>-->
+
+		<referenceBlock name="product.info.social">
+			<block class="Mageplaza\HelloWorld\Block\PageCountDown" name="product.info.brand" as="brand" template="Mageplaza_HelloWorld::pagedetailcountdown.phtml">
+			</block>
+		</referenceBlock>
+
 				<referenceBlock	name="product.info.details">
+
+<!--					<block class="Mageplaza\HelloWorld\Block\TimeCountDown" name="countdown"  as="countdown" template="Mageplaza_HelloWorld::timecountdow.phtml" cacheable="false"/>-->
+
+
+
+
 					<block	class="Mageplaza\HelloWorld\Block\SizeGuide"	name="size-guide"		group="detailed_info">
 							<arguments>
 									<argument	name="block_id"	xsi:type="string">size-guide</argument>
@@ -46,6 +71,8 @@
 <!--					</referenceBlock>-->
 
 				</referenceBlock>
+
+
 				<move element="size-g" destination="product.info.details" before="-" />
 
 

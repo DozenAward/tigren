@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- for magento catalog list overrider -->
+<!--        <referenceBlock name="category.products.list" >-->
+<!--            <block class="Mageplaza\HelloWorld\Block\TimeCountDown" name="product.info.brand" as="brand" template="Mageplaza_HelloWorld::hello.phtml">-->
+<!--                <arguments>-->
+<!--                    <argument	name="block_id"	xsi:type="string">size-guide</argument>-->
+<!--                    <argument	name="css_class"	xsi:type="string">description</argument>-->
+<!--                    <argument	name="at_label"	xsi:type="string">none</argument>-->
+<!--                    <argument	name="title"	translate="true"	xsi:type="string">Time Count Down</argument>-->
+<!--                    <argument 	name="sort_order" xsi:type="string">2</argument>-->
+<!--                </arguments>-->
+<!--            </block>-->
+<!--        </referenceBlock>-->
+    </body>
+</page>

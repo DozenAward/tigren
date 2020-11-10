@@ -7,4 +7,14 @@
 
         <add id="Mageplaza_HelloWorld::hospital_menu_2" title="Enable Hospital" module="Mageplaza_HelloWorld" sortOrder="10" action="admin/system_config/edit/section/helloworld" resource="Mageplaza_HelloWorld::hospital" parent="Mageplaza_HelloWorld::helloworld_menu"/>
     </menu>
+
+
+    <menu>
+        <add id="Mageplaza_HelloWorld::daily_deal" title="Daily Deal" module="Mageplaza_HelloWorld" sortOrder="51" resource="Mageplaza_HelloWorld::dailydeal"/>
+        <add id="Mageplaza_HelloWorld::daily_deal_menu" title="Product Daily Deal Overall" module="Mageplaza_HelloWorld" sortOrder="10" action="productdeal/productdeal/index" resource="Mageplaza_HelloWorld::productdeal" parent="Mageplaza_HelloWorld::daily_deal"/>
+        <add id="Mageplaza_HelloWorld::daily_deal_product" title="Daily Deal Product" module="Mageplaza_HelloWorld" sortOrder="10" action="dailydeal/product/index" resource="Mageplaza_HelloWorld::dailydeal" parent="Mageplaza_HelloWorld::daily_deal"/>
+        <add id="Mageplaza_HelloWorld::daily_deal_table" title="Daily Deal Table" module="Mageplaza_HelloWorld" sortOrder="10" action="dailydeal/dailydeal/index" resource="Mageplaza_HelloWorld::dailydeal" parent="Mageplaza_HelloWorld::daily_deal"/>
+
+        <add id="Mageplaza_HelloWorld::custom_table" title="Daily Deal Ahihi" module="Mageplaza_HelloWorld" sortOrder="10" action="helloworld/table" resource="Mageplaza_HelloWorld::dailydeal" parent="Mageplaza_HelloWorld::daily_deal"/>
+    </menu>
 </config>

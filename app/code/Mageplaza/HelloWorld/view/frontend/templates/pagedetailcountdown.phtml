@@ -1,0 +1,108 @@
+<div class="countdown">
+    <div></div>
+    <?php
+//    $id_daily_deal = $this->getData();
+
+        $id_daily_deal = $block->getCurrentProduct()->getIdDailyDeal();
+        $quantity_daily_deal =$block->getCurrentProduct()->getQuantityDailyDeal();
+        $price_deal = $block->getCurrentProduct()->getPriceDailyDeal();
+        $collection = $block->getResult($id_daily_deal);
+    //    echo $collection->getData('start_date');
+
+        $item = $collection->getFirstItem();
+        if($item['daily_deal_enable']){
+        echo "<div><div class='title_qty'>Quantity For Daily Deal: <strong>";
+        echo $quantity_daily_deal;
+        echo " products </strong></div>";
+        echo "<div class='price'>Price For Deal: <strong>";
+        echo $price_deal;
+        echo " $ </strong></div>";
+        echo "<div class ='abc' id='timer'  data='";
+        echo $item['date_end'];
+        echo "'>Time expired: ";
+        echo $item['date_end'];
+        echo "</div><div id='timer_remain'></div></div>";}
+//        echo date("Y-m-d h:i:sa");
+//        echo $item['date_end'];
+
+//       ears." years, ".$months." months, ".$days." days, ".$hours." hours, ".$minutes." minutes, ".$seconds." seconds";
+
+    ?>
+</div>
+<script >
+
+
+    function doDate()
+    {
+        // alert(1);
+        var date_end = document.getElementById("timer").innerHTML;
+        var date_end_str = new Date(date_end).getTime()
+        var str = "";
+        //
+        var days = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+        var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+        var now = new Date().getTime();
+
+        // str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() +":" + now.getMinutes() + ":" + now.getSeconds();
+        var distance = date_end_str - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        str +=days +" day "+ hours +" hours "+minutes+" minutes "+seconds+" seconds ";
+        if(distance>0){
+            document.getElementById("timer_remain").innerHTML = str;
+            // document.getElementsByClassName('price').innerHtml = "$1";
+        }
+        else {
+            document.getElementById("timer_remain").innerHTML = "Daily Deal Expired !"
+        }
+
+    }
+
+    setInterval(doDate, 1000);
+
+
+    // require([
+    //     'jquery',
+    //     'accordion'], function ($) {
+    //     function updateData(){
+    //         $(".abc").each(function() {
+    //             console.log($(this).attr('data'));
+    //             var now = new Date().getTime();
+    //             // console.log( $(this).attr("data"));
+    //             // function doTime()
+    //             var date_end = $(this).attr('data');
+    //             var date_end_str = new Date(date_end).getTime()
+    //             var str = "";
+    //             //
+    //             // var days = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    //             // var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    //             //
+    //             // var now = new Date().getTime();
+    //
+    //             // str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() +":" + now.getMinutes() + ":" + now.getSeconds();
+    //             var distance = date_end_str - now;
+    //
+    //             // Time calculations for days, hours, minutes and seconds
+    //             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    //             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    //             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    //
+    //             str +=days +" day "+ hours +" hours "+minutes+" minutes "+seconds+" seconds ";
+    //
+    //
+    //
+    //
+    //             $(this).html(str);
+    //         });
+    //     }
+    //     setInterval(updateData, 1000);
+    // });
+</script>
+

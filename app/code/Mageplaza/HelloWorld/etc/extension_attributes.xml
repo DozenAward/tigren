@@ -5,11 +5,36 @@
 <!--        <attribute code="custom_shipping_charge" type="string"/>-->
 <!--    </extension_attributes>-->
 
+
+
+
     <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
         <attribute code="new_item" type="int"/>
     </extension_attributes>
     <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
         <attribute code="is_new_item" type="int"/>
+    </extension_attributes>
+
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="id_daily_deal" type="int"/>
+    </extension_attributes>
+
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="price_daily_deal" type="int"/>
+    </extension_attributes>
+
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="quantity_daily_deal" type="int"/>
+    </extension_attributes>
+
+
+    <extension_attributes for="\Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="daily_deal_value" type="string">
+            <join reference_table="daily_deal" reference_field="id_daily_deal" join_on_field="id_daily_deal">
+                <field>daily_deal_title</field>
+                <field>percent</field>
+            </join>
+        </attribute>
     </extension_attributes>
 
 </config>

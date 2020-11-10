@@ -9,4 +9,10 @@
     <event name="catalog_controller_product_view">
         <observer name="CloudwaysProductData" instance="Mageplaza\HelloWorld\Observer\Product\Data" />
     </event>
+
+
+    <event name="checkout_cart_product_add_after">
+        <observer name="customPriceInCart" instance="Mageplaza\HelloWorld\Observer\CustomPriceInCart" />
+    </event>
+
 </config>
